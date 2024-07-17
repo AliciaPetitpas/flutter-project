@@ -10,8 +10,15 @@ class HomePage extends StatelessWidget {
         title: const Text("Project",style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.redAccent,
       ),
-      body: const Column(children: [
-        Card(),
+      body: Column(children: [
+        Expanded(
+          child: ListView.builder(
+            itemBuilder: (context, index) => ListTile(
+              leading: Image.network("https://picsum.photos/150",fit: BoxFit.contain),
+              title: Text("N° $index"),
+            ),
+          ),
+        )
       ],)
     );
   }
@@ -23,7 +30,7 @@ class Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      Image.network("https://picsum.photos/150"),
+      Image.network("https://picsum.photos/150",fit: BoxFit.contain),
       const Expanded(child: Text("Lorem Ipsum")),
     ],);
   }
